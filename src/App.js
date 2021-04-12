@@ -26,8 +26,8 @@ const initialState = {
   input: "",
   imageUrl: "",
   boxesArr: [],
-  route: "signin",
-  isSignedIn: false,
+  route: "home",
+  isSignedIn: true,
   user: {
     id: "",
     name: "",
@@ -112,7 +112,7 @@ class App extends Component {
 
   onRouteChange = (route) => {
     if (route === "signout") {
-      this.setState(initialState);
+      return this.setState(initialState);
     } else if (route === "home") {
       this.setState({ isSignedIn: true });
     }
@@ -121,6 +121,7 @@ class App extends Component {
 
   render() {
     const { isSignedIn, imageUrl, route, boxesArr } = this.state;
+
     return (
       <div className='App'>
         <Particles className='particles' params={particlesOptions} />{" "}
